@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Agencia</th>
+            <th>Estatus</th>
+            <th>Más info</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tripulante of tripulacion">
+            <!-- img -->
+            <td>{{tripulante.name}}</td>
+            <td>{{tripulante.agency}}</td>
+            <td>{{tripulante.status}}</td>
+            <td><a [routerLink]="['/tripulacion', tripulante.id]">Más info</a></td>
+        </tr>
+    </tbody>
+</table>

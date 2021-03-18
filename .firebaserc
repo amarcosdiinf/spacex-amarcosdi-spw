@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "spacex-amarcosdi-95c26": {
+      "hosting": {
+        "spacex": [
+          "spacex-amarcosdi-95c26"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "spacex-amarcosdi-95c26"
+  }
+}

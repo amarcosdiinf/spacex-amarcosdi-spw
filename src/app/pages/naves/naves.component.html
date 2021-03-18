@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Más info</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let nave of naves">
+            <td>{{nave.name}}</td>
+            <td><a [routerLink]="['/nave', nave.legacy_id]">Más información</a></td>
+        </tr>
+    </tbody>
+</table>

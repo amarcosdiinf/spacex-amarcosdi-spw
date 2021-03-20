@@ -10,11 +10,13 @@ import { Nave } from 'src/app/modelos/nave.model';
 export class NavesComponent implements OnInit {
 
   naves;
-
   constructor(private navesService: NavesService) { }
 
   ngOnInit(): void {
-    this.naves = this.navesService.getNaves();
+    this.navesService.getNaves()
+      .subscribe(datos => {
+        this.naves = datos;
+    });
   }
 
 }

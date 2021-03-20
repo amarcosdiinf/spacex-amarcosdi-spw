@@ -8,7 +8,7 @@
     <tbody>
         <tr *ngFor="let nave of naves">
             <td>{{nave.name}}</td>
-            <td><a [routerLink]="['/nave', nave.legacy_id]">Más información</a></td>
+            <td><a [routerLink]="['/nave', nave.id]">Más información</a></td>
         </tr>
     </tbody>
 </table>

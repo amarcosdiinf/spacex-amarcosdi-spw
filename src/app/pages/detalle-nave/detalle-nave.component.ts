@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Nave } from 'src/app/modelos/nave.model';
 import { NavesService } from 'src/app/services/naves.service';
 
 @Component({
@@ -17,9 +18,15 @@ export class DetalleNaveComponent implements OnInit {
               private router: ActivatedRoute,
               private location: Location) { }
 
-  ngOnInit(): void {
-    this.idNave = this.router.params['legacy_id'];
-    this.nave = this.naveService.getNave(this.idNave);
+  ngOnInit() {
+    this.router.params.subscribe( param => {
+      this.idNave = param.id;
+    });
+
+    this.naveService.getNave(this.idNave).subscribe( datos =>{
+      this.nave = datos;
+      console.log(this.nave);
+    });
   }
 
   volver(){

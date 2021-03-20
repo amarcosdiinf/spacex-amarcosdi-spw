@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {AngularFireModule} from '@angular/fire'
 import {AngularFireDatabaseModule} from '@angular/fire/database'
 
+import { FormsModule } from '@angular/forms'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
@@ -25,6 +27,8 @@ import { environment } from 'src/environments/environment';
 import { MisionesComponent } from './pages/misiones/misiones.component';
 import { DetalleMisionComponent } from './pages/detalle-mision/detalle-mision.component';
 import { AddMisionComponent } from './pages/add-mision/add-mision.component';
+import { MisionFormComponent } from './componentes/mision-form/mision-form.component';
+
 
 @NgModule({
   declarations: [
@@ -45,14 +49,16 @@ import { AddMisionComponent } from './pages/add-mision/add-mision.component';
     SocialLinkComponent,
     MisionesComponent,
     DetalleMisionComponent,
-    AddMisionComponent
+    AddMisionComponent,
+    MisionFormComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

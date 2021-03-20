@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Astronauta } from 'src/app/modelos/astronauta.model';
 import { TripulacionService } from 'src/app/services/tripulacion.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-tripulacion',
@@ -8,11 +10,11 @@ import { TripulacionService } from 'src/app/services/tripulacion.service';
 })
 export class TripulacionComponent implements OnInit {
 
-  tripulacion;
+  tripulacion: Astronauta[];
   constructor(private tripulacionService: TripulacionService) { }
 
   ngOnInit(): void {
-    this.tripulacion = this.tripulacionService.getTripulacion()
+    this.tripulacionService.getTripulacion()
       .subscribe(datos => {
         this.tripulacion = datos;
     });

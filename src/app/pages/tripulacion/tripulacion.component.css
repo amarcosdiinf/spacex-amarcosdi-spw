@@ -1,0 +1,10 @@
+.masthead {
+    background-image: url('/assets/images/spacex-banner.jpeg');
+}
+
+.table-scrollbar {
+    position: relative;
+    height: 30em;
+    overflow: auto;
+}
+

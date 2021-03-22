@@ -12,7 +12,10 @@ export class CompanyInfoComponent implements OnInit {
   constructor(private companyInfoService: CompanyService) { }
 
   ngOnInit(): void {
-    this.companyInfo = this.companyInfoService.getCompanyInfo();
+    this.companyInfoService.getCompanyInfo().subscribe(datos => {
+      this.companyInfo = datos;
+      console.log(this.companyInfo);
+    });
   }
 
   getCompanyInfo(){

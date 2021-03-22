@@ -6,6 +6,7 @@ import {AngularFireModule} from '@angular/fire'
 import {AngularFireDatabaseModule} from '@angular/fire/database'
 
 import { FormsModule } from '@angular/forms'
+import { LeafletModule } from '@asymmetrik/ngx-leaflet'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { MisionesComponent } from './pages/misiones/misiones.component';
 import { DetalleMisionComponent } from './pages/detalle-mision/detalle-mision.component';
 import { AddMisionComponent } from './pages/add-mision/add-mision.component';
 import { MisionFormComponent } from './componentes/mision-form/mision-form.component';
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { MisionFormComponent } from './componentes/mision-form/mision-form.compo
     MisionesComponent,
     DetalleMisionComponent,
     AddMisionComponent,
-    MisionFormComponent
+    MisionFormComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { MisionFormComponent } from './componentes/mision-form/mision-form.compo
     AngularFireDatabaseModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]

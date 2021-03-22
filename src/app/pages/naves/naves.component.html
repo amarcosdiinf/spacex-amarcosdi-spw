@@ -1,14 +1,29 @@
-<table>
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Más info</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let nave of naves">
-            <td>{{nave.name}}</td>
-            <td><a [routerLink]="['/nave', nave.id]">Más información</a></td>
-        </tr>
-    </tbody>
-</table>
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h2>Naves</h2>
+            <span class="subheading">Nuestra tecnología</span>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>
+
+<div class="album py-5 bg-light card-catalogue">
+    <div class="container">
+        <div id="rockets-sect" class="row justify-content-center" >
+            <div class="col col-xs-6-m-4-lg-3 col-md-4" *ngFor="let nave of naves">
+                <div class="card mb-4 shadow-sm mw-25" data-name="{{nave.name}">
+                    <img [src]=nave.flickr_images[0]   alt="Foto de la nave {{nave.name}}" class="card-img-top rounded mx-auto d-block w-100">
+                    <div class="card-body">
+                        <h3 class="card-title">{{nave.name}}</h3>
+                    </div>
+                    <a class="btn btn-primary mb-3 mx-3" [routerLink]="['/nave', nave.id]">Más información</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

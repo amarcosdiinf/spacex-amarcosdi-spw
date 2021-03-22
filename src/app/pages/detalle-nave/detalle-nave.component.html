@@ -1,3 +1,49 @@
 <h2>{{nave.name}}</h2>
-<p>Detalle</p>
-<button (click)="volver()">Volver</button>
+
+<div class="container">
+    <div class="row">
+        <div id="carouselExampleIndicators" class="carousel slide col-lg-8 col-md-10 mx-auto" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li  *ngFor="let img of nave.flickr_images, let i = index, first as isFirst" [ngClass]="isFirst ? 'active' : ''" data-target="#carouselExampleIndicators" data-slide-to="{{i}}"></li>
+            </ol>
+            <div class="carousel-inner" >
+                <div *ngFor="let img of nave.flickr_images, first as isFirst" [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item'">
+                    <img class="d-block w-100" [src]="img" alt="Slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<p>{{nave.description}}</p>
+
+<table>
+    <thead>
+        <th>Tipo</th>
+        <th>Tasa de éxito</th>
+        <th>Masa</th>
+        <th>Longitud</th>
+        <th>Diámetro</th>
+        <th>Wikipedia</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{nave.type}}</td>
+            <td>{{nave.success_rate_pct}}%</td>
+            <td>{{nave.mass['kg']}} kg</td>
+            <td>{{nave.height['meters']}} metros</td>
+            <td>{{nave.diameter['meters']}} metros</td>
+            <td><a class="btn btn-primary" href="{{nave.wikipedia}}" target="_blank">Más información</a></td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-danger" (click)="volver()">Volver</button>

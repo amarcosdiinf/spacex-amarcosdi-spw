@@ -1,3 +1,23 @@
-<h2>{{tripulante.name}}</h2>
-<p>Detalle</p>
-<button (click)="volver()">Volver</button>
+
+<div *ngIf='tripulante'>
+    <h2>{{tripulante.name}}</h2>
+    <p>Detalle</p>
+    <!-- Hacer clase bandera y meterlo en columna o algo parecido -->
+    <img [src]="tripulante.image" alt="Imagen del astronauta">
+    <table>
+        <thead>
+            <th>Agencia</th>
+            <th>Estatus</th>
+            <th>Biografía</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{tripulante.agency}}</td>
+                <td>{{tripulante.status}}</td>
+                <td><a href="{{tripulante.wikipedia}}" class="btn btn-primary" target="_blank">Biografía en Wikipedia</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button (click)="volver()">Volver</button>
+</div>

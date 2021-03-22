@@ -10,7 +10,7 @@ import { __values } from 'tslib';
 })
 export class TripulacionComponent implements OnInit {
 
-  tripulacion: Astronauta[];
+  tripulacion;
   constructor(private tripulacionService: TripulacionService) { }
 
   ngOnInit(): void {
@@ -19,5 +19,7 @@ export class TripulacionComponent implements OnInit {
         this.tripulacion = datos;
     });
   }
+
+  
 
 }

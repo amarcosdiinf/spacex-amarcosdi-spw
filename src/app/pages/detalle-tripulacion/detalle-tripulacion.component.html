@@ -1,10 +1,11 @@
+<h2 class="text-center">{{tripulante.name}}</h2>
 
-<div *ngIf='tripulante'>
-    <h2>{{tripulante.name}}</h2>
-    <p>Detalle</p>
-    <!-- Hacer clase bandera y meterlo en columna o algo parecido -->
-    <img [src]="tripulante.image" alt="Imagen del astronauta">
-    <table>
+<div class="container profile-image-container">
+    <img class="d-block w-100" [src]="tripulante.image" alt="Imagen del astronauta">
+</div>
+
+<div class="container w-50 mx-auto">
+   <table class="table mt-4">
         <thead>
             <th>Agencia</th>
             <th>Estatus</th>
@@ -19,5 +20,5 @@
         </tbody>
     </table>
 
-    <button (click)="volver()">Volver</button>
+    <button class="btn btn-danger" (click)="volver()">Volver</button>
 </div>

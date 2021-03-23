@@ -30,6 +30,9 @@ import { DetalleMisionComponent } from './pages/detalle-mision/detalle-mision.co
 import { AddMisionComponent } from './pages/add-mision/add-mision.component';
 import { MisionFormComponent } from './componentes/mision-form/mision-form.component';
 import { MapComponent } from './map/map.component';
+import { ProximoLanzamientoComponent } from './componentes/proximo-lanzamiento/proximo-lanzamiento.component';
+import { ListadoLanzamientosComponent } from './componentes/listado-lanzamientos/listado-lanzamientos.component';
+import { CountdownTimerComponent } from './componentes/countdown-timer/countdown-timer.component';
 
 
 @NgModule({
@@ -53,7 +56,10 @@ import { MapComponent } from './map/map.component';
     DetalleMisionComponent,
     AddMisionComponent,
     MisionFormComponent,
-    MapComponent
+    MapComponent,
+    ProximoLanzamientoComponent,
+    ListadoLanzamientosComponent,
+    CountdownTimerComponent
   ],
   imports: [
     BrowserModule,

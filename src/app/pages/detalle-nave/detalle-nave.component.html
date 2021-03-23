@@ -1,8 +1,8 @@
-<h2>{{nave.name}}</h2>
+<h2 class="text-center">{{nave.name}}</h2>
 
 <div class="container">
     <div class="row">
-        <div id="carouselExampleIndicators" class="carousel slide col-lg-8 col-md-10 mx-auto" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide col col-lg-8 col-md-10 mx-auto" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li  *ngFor="let img of nave.flickr_images, let i = index, first as isFirst" [ngClass]="isFirst ? 'active' : ''" data-target="#carouselExampleIndicators" data-slide-to="{{i}}"></li>
             </ol>
@@ -23,27 +23,28 @@
     </div>
 </div>
 
+<div class="container w-75 mx-auto">
+    <p>{{nave.description}}</p>
 
-<p>{{nave.description}}</p>
-
-<table>
-    <thead>
-        <th>Tipo</th>
-        <th>Tasa de éxito</th>
-        <th>Masa</th>
-        <th>Longitud</th>
-        <th>Diámetro</th>
-        <th>Wikipedia</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{nave.type}}</td>
-            <td>{{nave.success_rate_pct}}%</td>
-            <td>{{nave.mass['kg']}} kg</td>
-            <td>{{nave.height['meters']}} metros</td>
-            <td>{{nave.diameter['meters']}} metros</td>
-            <td><a class="btn btn-primary" href="{{nave.wikipedia}}" target="_blank">Más información</a></td>
-        </tr>
-    </tbody>
-</table>
-<button class="btn btn-danger" (click)="volver()">Volver</button>
+    <table class="table">
+        <thead>
+            <th>Tipo</th>
+            <th>Tasa de éxito</th>
+            <th>Masa</th>
+            <th>Longitud</th>
+            <th>Diámetro</th>
+            <th>Wikipedia</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{nave.type}}</td>
+                <td>{{nave.success_rate_pct}}%</td>
+                <td>{{nave.mass['kg']}} kg</td>
+                <td>{{nave.height['meters']}} metros</td>
+                <td>{{nave.diameter['meters']}} metros</td>
+                <td><a class="btn btn-primary" href="{{nave.wikipedia}}" target="_blank">Más información</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-danger" (click)="volver()">Volver</button>
+</div>

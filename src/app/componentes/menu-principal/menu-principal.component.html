@@ -1,19 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3">
     <div class="container">
         <h1 class="navbar-brand">
-            SpaceX - Alejandro Marcos Díaz
+            <a [routerLink]="['']">SpaceX - Alejandro Marcos Díaz</a>
         </h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav mx-auto mb-1">
                 <li class="nav-link"><a [routerLink]="['']">Principal</a></li>
                 <li class="nav-link"><a [routerLink]="['/nave']">Naves</a></li>
                 <li class="nav-link"><a [routerLink]="['/tripulacion']">Tripulación</a></li>
                 <li class="nav-link"><a [routerLink]="['/lanzamiento']">Lanzamientos</a></li>
-                <li class="nav-link"><a [routerLink]="['/mision']">Mis misiones</a></li>
+                <li class="nav-link"><a [routerLink]="['/mision']">Misiones</a></li>
             </ul>
         </div>
     </div>

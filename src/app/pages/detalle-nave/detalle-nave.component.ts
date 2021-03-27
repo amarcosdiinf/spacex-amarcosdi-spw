@@ -24,7 +24,6 @@ export class DetalleNaveComponent implements OnInit {
 
     this.naveService.getNave(this.idNave).subscribe( datos =>{
       this.nave = datos;
-      console.log(datos);
     });
 
     

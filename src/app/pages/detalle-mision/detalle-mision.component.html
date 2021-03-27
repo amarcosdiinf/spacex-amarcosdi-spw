@@ -1,1 +1,60 @@
-<p>detalle-mision works!</p>
+<h2 class="text-center mt-4">{{mision.titulo}}</h2>
+<div class="container w-75 mx-auto">
+    <div class="row">
+        <p>{{mision.descripcion}}</p>
+    </div>
+    
+    <div class="row">
+        <p>Inicio de la misión:</p>
+        <app-countdown-timer [inputDate]="mision.fecha_ini"></app-countdown-timer>
+    </div>
+    
+    <div class="row">
+        <p>Fin de la misión:</p>
+        <app-countdown-timer [inputDate]="mision.fecha_fin"></app-countdown-timer>
+    </div>
+    
+
+    <div class="row">
+        <div id="carouselExampleIndicators" class="carousel slide col col-lg-8 col-md-10 mx-auto" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li  *ngFor="let img of mision.nave.flickr_images, let i = index, first as isFirst" [ngClass]="isFirst ? 'active' : ''" data-target="#carouselExampleIndicators" data-slide-to="{{i}}"></li>
+            </ol>
+            <div class="carousel-inner" >
+                <div *ngFor="let img of mision.nave.flickr_images, first as isFirst" [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item'">
+                    <img class="d-block w-100" [src]="img" alt="Slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="album py-5 bg-light card-catalogue">
+            <div class="container">
+                <div id="rockets-sect" class="row justify-content-center" >
+                    <div class="col col-xs-6-m-4-lg-3 col-md-4" *ngFor="let tripulante of mision.tripulacion">
+                        <div class="card mb-4 shadow-sm mw-25" data-name="{{tripulante.name}">
+                            <img [src]=tripulante.image   alt="Foto del astronauta {{tripulante.name}}" class="card-img-top rounded mx-auto d-block w-100">
+                            <div class="card-body">
+                                <h3 class="card-title">{{tripulante.name}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <button class="btn btn-danger" (click)="volver()">Volver</button>
+</div>

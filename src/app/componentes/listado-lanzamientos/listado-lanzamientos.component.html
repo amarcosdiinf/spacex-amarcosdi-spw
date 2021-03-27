@@ -16,8 +16,8 @@
                     <tr *ngFor="let lanzamiento of lanzamientos, let i = index">
                         <th>{{i+1}}</th>
                         <td>{{lanzamiento.name}}</td>
-                        <td>{{lanzamiento.date_utc}}</td>
-                        <td>{{lanzamiento.sucess}}</td>
+                        <td>{{lanzamiento.date_utc | date:'dd/MM/YY h:mm a z'}}</td>
+                        <td>{{lanzamiento.success_str}}</td>
                         <td><a class="btn btn-primary w-100"  [routerLink]="['/lanzamiento', lanzamiento.id]">Más info</a></td>
                     </tr>
                 </tbody>

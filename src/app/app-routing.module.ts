@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddMisionComponent } from './pages/add-mision/add-mision.component';
 import { DetalleLanzamientoComponent } from './pages/detalle-lanzamiento/detalle-lanzamiento.component';
 import { DetalleMisionComponent } from './pages/detalle-mision/detalle-mision.component';
 import { DetalleNaveComponent } from './pages/detalle-nave/detalle-nave.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'lanzamiento/:id', component: DetalleLanzamientoComponent},
   {path: 'mision', component: MisionesComponent},
   {path: 'mision/:id', component: DetalleMisionComponent},
+  {path: 'mision-form', component: AddMisionComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

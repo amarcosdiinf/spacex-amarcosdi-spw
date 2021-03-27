@@ -1,15 +1,43 @@
-<table>
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Más información</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let mision of misiones">
-            <td>{{mision.titulo}}</td>
-            <td>{{mision.titulo}}</td>
-            <!--<td><a [routerLink]="['/nave', nave.legacy_id]">Más información</a></td>-->
-        </tr>
-    </tbody>
-</table>
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h2>Mis misiones</h2>
+            <div *ngIf="misiones.length > 0; then showMisionesBlock else addMisionesButtonBlock"></div>
+                <ng-template #showMisionesBlock>
+                    <span class="subheading">¡Visualiza y modifica tus misiones o añade unas nuevas!</span>
+                </ng-template>
+                <ng-template #addMisionesButtonBlock>
+                    <span class="subheading">¡Ops, aún no tienes misiones!</span>
+                </ng-template>
+                <a [routerLink]="['/mision-form/']" class="btn btn-primary mt-4">Crear misión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>
+
+<div *ngIf="misiones.length > 0" class="album py-5 bg-light card-catalogue">
+    <div class="container">
+        <div id="misiones-sect" class="row justify-content-center" >
+            <div class="col col-xs-6-m-4-lg-3 col-md-4" *ngFor="let mision of misiones">
+                <div class="card mb-4 shadow-sm mw-25" data-name="{{mision.name}">
+                    <!-- img [src]=mision.flickr_images[0]   alt="Foto de la mision {{mision.name}}" class="card-img-top rounded mx-auto d-block w-100"-->
+                    <div class="card-body">
+                        <h3 class="card-title">{{mision.titulo}}</h3>
+                        <p>{{mision.descripcion}}</p>
+                    </div>
+                    <a class="btn btn-primary mb-3 mx-3" [routerLink]="['/mision', mision.id]">Más información</a>
+                    <button type="button" class="btn btn-danger mb-3 mx-3" (click)="deleteMision(mision.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

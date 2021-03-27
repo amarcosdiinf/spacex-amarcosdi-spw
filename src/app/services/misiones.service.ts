@@ -17,22 +17,38 @@ export class MisionesService {
     return this.firestore.collection('misiones').snapshotChanges();
   }
 
-  deleteMision(mision: Mision){
-    this.firestore.collection('mision').doc(mision.id).delete();
+  obtenerMision(id: string): Observable<any> {
+    return this.firestore.collection('misiones').doc(id).snapshotChanges();
   }
 
+  addMision(mision: Mision) {
 
-  /*
-  anadirTarea(tarea: Tarea){
-    let nuevaTarea = Object.assign( {}, {'nombre': tarea, 'completada': false});
-    return this.firestore.collection('tareas').add(nuevaTarea);
+    let newNave = Object.assign({}, mision.nave);
+
+    let newMision = Object.assign({}, mision);
+    newMision.nave = newNave;
+
+
+    let newTripulacion = new Array();
+    (mision.tripulacion).forEach(tripulante => {
+      newTripulacion.push(Object.assign({}, tripulante));
+    });
+    
+    newMision.tripulacion = newTripulacion;
+
+    console.log(newMision);
+
+    this.firestore.collection('misiones').add(newMision);
+    console.log("C incertó");
   }
 
-  modificarTarea(tarea:Tarea){
-    this.firestore.collection('tareas')
-          .doc(tarea.id)
-          .set({completada: !tarea.completada }, { merge: true});
+  updateMision(mision: Mision) {
+    this.firestore.collection('misiones')
+           .doc(mision.id)
+           .set(mision, {merge: true});
   }
-  
-  */
+
+  deleteMision(misionId){
+    this.firestore.collection('misiones').doc(misionId).delete();
+  }
 }

@@ -14,7 +14,6 @@ export class CompanyInfoComponent implements OnInit {
   ngOnInit(): void {
     this.companyInfoService.getCompanyInfo().subscribe(datos => {
       this.companyInfo = datos;
-      console.log(this.companyInfo);
     });
   }
 

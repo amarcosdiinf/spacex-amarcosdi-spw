@@ -1,1 +1,109 @@
-<p>add-mision works!</p>
+<div class="container py-5">
+       <div class="row">
+              <div class="col col-lg-8 mx-auto text-center">
+                     <h2>Crea tu misión</h2>
+              </div>
+       </div>
+       <div class="row">
+              <div class="col col-lg-4-md-6-sm-12 shadow p-4">
+                     <form [formGroup]="misionForm" (ngSubmit)="guardar()">
+                            <div class="form-group">
+                                   <label for="titulo">Titulo</label>
+                                   <input class="form-control"
+                                          type="text" 
+                                          placeholder="Titulo" 
+                                          formControlName="titulo"
+                                          [class.is-invalid]="tituloNoValido"
+                                          name="titulo">
+                                   <small *ngIf="tituloNoValido" class="text-danger">Mínimo 5 caracteres <br></small>
+                     
+                                   <label for="descripcion">Descripción</label>
+                                   <input class="form-control"
+                                          type="text" 
+                                          placeholder="Descripción" 
+                                          formControlName="descripcion"
+                                          name="descripcion">
+                                   <small *ngIf="descripcionNoValida" class="text-danger">Mínimo 5 caracteres <br></small>
+                            </div>
+                            
+                     
+                            
+                     
+                     
+                            <div class="form-group">
+                                   <label for="fecha_ini">Inicio de la misión:</label>
+                                   <input class="form-control" 
+                                          type="datetime-local"
+                                          formControlName="fecha_ini"
+                                          name="fecha_ini">
+                     
+                     
+                     
+                                   <label for="fecha_fin">Fin de la misión:</label>
+                                   <input class="form-control" 
+                                          type="datetime-local"
+                                          formControlName="fecha_fin"
+                                          name="fecha_fin">
+                                   <small *ngIf="fechaIniMayorFechaFin" class="text-danger">La fecha de inicio no puede ser superior a la fecha de fin<br></small>
+                            </div>
+                            
+                     
+                     
+                                   
+                            <div *ngIf="!nave; then addNaveBlock else naveCardBlock"></div>
+                            <ng-template #addNaveBlock>
+                                   <app-nave-modal-selector (naveSelected)='setNave($event)'>
+                                   </app-nave-modal-selector>
+                            </ng-template>
+                     
+                            <ng-template #naveCardBlock>
+                                   <div class="container">
+                                          <div class="row">
+                                                 <p>La nave:</p>
+                                          </div>
+                                          <div class="row justify-content-center" >
+                                                 <div class="col col-xs-6-m-4-lg-3 col-md-4">
+                                                        <div class="card mb-4 shadow-sm mw-25" data-name="{{nave.name}">
+                                                               <img [src]=nave.flickr_images[0]   alt="Foto de la nave {{nave.name}}" class="card-img-top rounded mx-auto d-block w-100">
+                                                               <div class="card-body">
+                                                                      <h3 class="card-title">{{nave.name}}</h3>
+                                                               </div>
+                                                        </div>
+                                                 </div>
+                                          </div>
+                                   </div>
+                            </ng-template>
+                     
+                            <div *ngIf="!tripulacion; then addTripulacionBlock else tripulacionCardsBlock"></div>
+                            <ng-template #addTripulacionBlock>
+                                   <app-tripulacion-modal-selector (tripulacionSelected)='setTripulacion($event)'>
+                                   </app-tripulacion-modal-selector>
+                            </ng-template>
+                            
+                            <ng-template #tripulacionCardsBlock>
+                                   <div class="container">
+                                          <div class="row">
+                                                 <p>La tripulación:</p>
+                                          </div>
+
+                                          <div class="row justify-content-center" >
+                                                 <div class="col col-xs-6-m-4-lg-3 col-md-4" *ngFor="let tripulante of tripulacion">
+                                                        <div class="card mb-4 shadow-sm mw-25" data-name="{{tripulante.name}">
+                                                               <img [src]=tripulante.image alt="Foto del astronauta {{tripulante.name}}" class="card-img-top rounded mx-auto d-block w-100">
+                                                               <div class="card-body">
+                                                                      <h3 class="card-title">{{tripulante.name}}</h3>
+                                                               </div>
+                                                        </div>
+                                                 </div>
+                                          </div>
+                                   </div>
+                            </ng-template>
+                            
+                     
+                            <button [ngClass]=" !misionForm.valid ? 'btn btn-outline-primary' : 'btn btn-primary' " class="btn d-block mt-5" type="submit" [disabled]="!misionForm.valid">Guardar</button>
+                     </form>
+              </div>
+       </div>
+</div>
+
+

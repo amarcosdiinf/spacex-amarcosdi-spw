@@ -36,7 +36,7 @@ export class CountdownTimerComponent implements OnInit {
 
   private getTimeDifference(){
     let now = new Date();
-    this.timeDifference = this.dateFinal.getTime() - now.getTime();
+    this.timeDifference = this.dateFinal.getTime() - new Date(now.toUTCString()).getTime();
 
     this.allocateTimeUnits(this.timeDifference);
   }

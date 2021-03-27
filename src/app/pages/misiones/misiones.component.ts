@@ -28,4 +28,7 @@ export class MisionesComponent implements OnInit {
       );
   }
 
+  deleteMision(id: string) {
+    this.misionesService.deleteMision(id);
+  }
 }

@@ -6,6 +6,7 @@ import {AngularFireModule} from '@angular/fire'
 import {AngularFireDatabaseModule} from '@angular/fire/database'
 
 import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 import { LeafletModule } from '@asymmetrik/ngx-leaflet'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,8 @@ import { MapComponent } from './map/map.component';
 import { ProximoLanzamientoComponent } from './componentes/proximo-lanzamiento/proximo-lanzamiento.component';
 import { ListadoLanzamientosComponent } from './componentes/listado-lanzamientos/listado-lanzamientos.component';
 import { CountdownTimerComponent } from './componentes/countdown-timer/countdown-timer.component';
+import { NaveModalSelectorComponent } from './componentes/nave-modal-selector/nave-modal-selector.component';
+import { TripulacionModalSelectorComponent } from './componentes/tripulacion-modal-selector/tripulacion-modal-selector.component';
 
 
 @NgModule({
@@ -59,7 +62,9 @@ import { CountdownTimerComponent } from './componentes/countdown-timer/countdown
     MapComponent,
     ProximoLanzamientoComponent,
     ListadoLanzamientosComponent,
-    CountdownTimerComponent
+    CountdownTimerComponent,
+    NaveModalSelectorComponent,
+    TripulacionModalSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,8 @@ import { CountdownTimerComponent } from './componentes/countdown-timer/countdown
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    LeafletModule
+    LeafletModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

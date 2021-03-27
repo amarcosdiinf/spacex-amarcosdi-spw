@@ -1,0 +1,41 @@
+<p>Añade una nave para tu misión</p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#naveModal">Seleccionar naves</button>
+
+<div class="modal fade" id="naveModal" tabindex="-1" role="dialog" aria-labelledby="naveModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="naveModalTitle">Naves</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="album py-5 bg-light card-catalogue">
+                    <div class="container">
+                        <div id="rockets-sect" class="row justify-content-center" >
+                            <div class="col col-xs-6-m-4-lg-3 col-md-4" *ngFor="let nave of naves">
+                                <div class="card mb-4 shadow-sm mw-25" data-name="{{nave.name}">
+                                    <img [src]=nave.flickr_images[0]   alt="Foto de la nave {{nave.name}}" class="card-img-top rounded mx-auto d-block w-100">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{nave.name}}</h3>
+                                    </div>
+                                    <button type="button" 
+                                            class="btn btn-primary mb-3 mx-3"
+                                            (click)="emitirNaveSelected(nave.id)"
+                                            data-dismiss="modal">
+                                        Añadir nave
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

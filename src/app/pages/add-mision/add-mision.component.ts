@@ -90,12 +90,18 @@ export class AddMisionComponent implements OnInit {
   
   // fecha fin < fecha ini
   get fechaIniMayorFechaFin(){
+    // No he conseguido que funcione esta función.
+
     let formValues = this.misionForm.value;
 
     let fecha_ini = formValues.fecha_ini;
     let fecha_fin = formValues.fecha_fin;
 
-    return (fecha_ini > fecha_fin) && this.misionForm.get('descripcion').touched;
+    if ((fecha_ini > fecha_fin) && this.misionForm.get('descripcion').touched){
+      return null;
+    } else {
+      return "error";
+    }
   }
 
 

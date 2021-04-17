@@ -113,4 +113,8 @@ export class AddMisionComponent implements OnInit {
   setTripulacion(tripulacion) {
     this.tripulacion = tripulacion;
   }
+
+  volver(){
+    this.location.back();
+  }
 }

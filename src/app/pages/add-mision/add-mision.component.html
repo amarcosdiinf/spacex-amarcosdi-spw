@@ -44,7 +44,6 @@
                                           type="datetime-local"
                                           formControlName="fecha_fin"
                                           name="fecha_fin">
-                                   <small *ngIf="fechaIniMayorFechaFin" class="text-danger">La fecha de inicio no puede ser superior a la fecha de fin<br></small>
                             </div>
                             
                      
@@ -100,7 +99,7 @@
                             </ng-template>
                             
                      
-                            <button [ngClass]=" !misionForm.valid ? 'btn btn-outline-primary' : 'btn btn-primary' " class="btn d-block mt-5" type="submit" [disabled]="!misionForm.valid">Guardar</button>
+                            <button [ngClass]=" !misionForm.valid ? 'btn btn-outline-primary' : 'btn btn-primary' " class="btn d-block mt-5" type="submit" [disabled]="!misionForm.valid" (click)="volver()">Guardar</button>
                      </form>
               </div>
        </div>

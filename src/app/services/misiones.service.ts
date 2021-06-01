@@ -13,7 +13,6 @@ import { Mision } from 'src/app/modelos/mision.model';
 export class MisionesService {
 
   url = "https://spacex-amarcosdi.vercel.app/api/misiones"
-  
 
   constructor(private httpClient: HttpClient) { }
 
@@ -43,7 +42,9 @@ export class MisionesService {
     newMision.tripulacion = newTripulacion;
 
     console.log(newMision);
+    console.log(this.url);
 
+    console.log(JSON.stringify(newMision))
     //this.firestore.collection('misiones').add(newMision);
     return this.httpClient.post(this.url, newMision);
   }
@@ -57,7 +58,8 @@ export class MisionesService {
   }
 
   deleteMision(misionId){
+    console.log(this.url + '/' + misionId);
     //this.firestore.collection('misiones').doc(misionId).delete();
-    return this.httpClient.delete(this.url + '/' + misionId)
+    return this.httpClient.delete(this.url + '/' + misionId);
   }
 }

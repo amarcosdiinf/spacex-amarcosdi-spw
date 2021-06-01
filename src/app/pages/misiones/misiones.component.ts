@@ -23,6 +23,14 @@ export class MisionesComponent implements OnInit {
   }
 
   deleteMision(id: string) {
-    this.misionesService.deleteMision(id);
+    console.log(id);
+
+    let index = this.misiones.findIndex(mision => mision._id === id);
+
+    this.misionesService.deleteMision(id).subscribe(
+      mision => console.log(mision)
+    );
+
+    this.misiones.splice(index);
   }
 }

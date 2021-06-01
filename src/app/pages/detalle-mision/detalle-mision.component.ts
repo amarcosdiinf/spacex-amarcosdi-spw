@@ -22,26 +22,9 @@ export class DetalleMisionComponent implements OnInit {
       this.idMision = param.id
     });
 
-    this.misionService.obtenerMisiones()
-      .subscribe(mision => {
-        let misiones = mision.map(
-          
-          m => {
-            return {
-              id: m.payload.doc.id,
-              ...m.payload.doc.data()
-            };
-          }
-        )
-        
-        misiones.forEach(mision => {
-          if(mision.id === this.idMision){
-            this.mision = mision;
-          }
-        });
-
-        }
-      );
+    this.misionService.obtenerMision(this.idMision).subscribe(mision => {
+        this.mision = mision['data'];
+      });
   }
 
   volver(): void {

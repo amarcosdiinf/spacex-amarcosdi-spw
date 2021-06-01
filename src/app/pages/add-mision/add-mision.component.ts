@@ -77,7 +77,12 @@ export class AddMisionComponent implements OnInit {
 
     console.log("Estoy insertando");
 
-    this.misionesService.addMision(newMision);
+    this.misionesService.addMision(newMision).subscribe(
+      mision => {
+        console.log(mision)
+        this.volver();
+      }
+    );
   }
 
   get tituloNoValido(){

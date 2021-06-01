@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import {AngularFireModule} from '@angular/fire'
-import {AngularFireDatabaseModule} from '@angular/fire/database'
-
 import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
 import { LeafletModule } from '@asymmetrik/ngx-leaflet'
@@ -68,8 +65,6 @@ import { TripulacionModalSelectorComponent } from './componentes/tripulacion-mod
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

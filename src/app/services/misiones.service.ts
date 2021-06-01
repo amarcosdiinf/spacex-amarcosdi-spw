@@ -2,23 +2,29 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs'
 
-import {AngularFirestore} from '@angular/fire/firestore'
+import { HttpClient } from '@angular/common/http';
 
 import { Mision } from 'src/app/modelos/mision.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MisionesService {
 
-  constructor(private firestore: AngularFirestore) { }
+  url = "https://spacex-amarcosdi.vercel.app/api/misiones"
+  
 
-  obtenerMisiones(): Observable<any[]>{
-    return this.firestore.collection('misiones').snapshotChanges();
+  constructor(private httpClient: HttpClient) { }
+
+  obtenerMisiones(): Observable<any>{
+    // return this.firestore.collection('misiones').snapshotChanges();
+    return this.httpClient.get(this.url);
   }
 
   obtenerMision(id: string): Observable<any> {
-    return this.firestore.collection('misiones').doc(id).snapshotChanges();
+    //return this.firestore.collection('misiones').doc(id).snapshotChanges();
+    return this.httpClient.get(this.url + '/' + id)
   }
 
   addMision(mision: Mision) {
@@ -38,17 +44,20 @@ export class MisionesService {
 
     console.log(newMision);
 
-    this.firestore.collection('misiones').add(newMision);
-    console.log("C incertó");
+    //this.firestore.collection('misiones').add(newMision);
+    return this.httpClient.post(this.url, newMision);
   }
 
   updateMision(mision: Mision) {
-    this.firestore.collection('misiones')
+    /*this.firestore.collection('misiones')
            .doc(mision.id)
-           .set(mision, {merge: true});
+           .set(mision, {merge: true});*/
+
+    return this.httpClient.put(this.url + '/' + mision.id, mision)
   }
 
   deleteMision(misionId){
-    this.firestore.collection('misiones').doc(misionId).delete();
+    //this.firestore.collection('misiones').doc(misionId).delete();
+    return this.httpClient.delete(this.url + '/' + misionId)
   }
 }

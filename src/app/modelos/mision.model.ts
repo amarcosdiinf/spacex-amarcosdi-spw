@@ -2,6 +2,7 @@ import { AstronautaShort } from "./astronauta-short.model";
 import { NaveShort } from "./nave-short.model";
 
 export class Mision {
+    _id: string;
     id: string;
     titulo: string;
     descripcion: string;

@@ -15,17 +15,11 @@ export class MisionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.misionesService.obtenerMisiones()
-      .subscribe(mision => {
-        this.misiones = mision.map(
-          
-          m => {
-            return {
-              id: m.payload.doc.id,
-              ...m.payload.doc.data()
-            };
-          }
-        )}
-      );
+          .subscribe(datos => {
+            console.log(datos)
+            console.log("\n\n")
+            this.misiones = datos['data'];
+        });
   }
 
   deleteMision(id: string) {

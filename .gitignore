@@ -47,3 +47,4 @@ Thumbs.db
 
 # API keys
 /src/environments/environment.ts
+.vercel
